@@ -1,0 +1,40 @@
+<section class=" flex flex-col gap-y-1 justify-center items-center m-auto max-w-80">
+  <h1 class="bg-blue-800 w-full text-3xl text-center ">{{name}}</h1>
+
+  <dl class="bg-blue-600 p-3 my-2 rounded w-full">
+    <td class="text-2xl font-bold text-amber-100">Nombre:</td>
+    <dd class=" text-xl text-green-500 font-semibold">{{name}}</dd>
+
+    <td class="text-2xl font-bold text-amber-100">Edad:</td>
+    <dd class=" text-xl text-green-500 font-semibold">{{age}}</dd>
+
+    <td class="text-2xl font-bold text-amber-100">Metodo:</td>
+    <dd class=" text-xl text-green-500 font-semibold">{{getHeroDescription()}}</dd>
+
+    <td class="text-2xl font-bold text-amber-100">Capitalizado:</td>
+    <dd class=" text-xl text-green-500 font-semibold">{{capitalize}}</dd>
+
+  </dl>
+
+  <div class=" flex gap-2">
+    <button
+      *ngIf="contador"
+      (click)="changenHero()" class="px-3 py-1 bg-blue-300 rounded border border-black hover:bg-sky-600">
+      Cambiar Nombre
+      <p class="text-[10px]">( Te quedan {{contador}} cambios ) </p>
+    </button>
+
+    <button
+      *ngIf="contador"
+      (click)="changenAge()" class="px-3 py-1 bg-blue-300 rounded border border-black hover:bg-sky-600">
+      Cambiar Edad
+      <p class="text-[10px]">( Te quedan {{contador}} cambios ) </p>
+    </button>
+  </div>
+    <p
+      *ngIf="!contador"
+      class="w-full px-3 py-1 bg-red-400 text-center"
+      >
+      Cambios agotados!
+    </p>
+</section>
