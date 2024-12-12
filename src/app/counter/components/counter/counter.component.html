@@ -1,0 +1,24 @@
+
+<div>
+  <h2 class="text-2xl font-semibold">Este es el contador:<span class="font-bold text-indigo-800"> {{counter}}</span></h2>
+  <div class=" flex gap-2">
+    <button
+      (click)="increseBy()"
+      class="px-3 py-1 bg-blue-300 rounded border border-black hover:bg-sky-600"
+    >
+      Incrementar
+    </button>
+    <button
+    class="px-3 py-1 bg-blue-300 rounded border border-black hover:bg-sky-600"
+      (click)="reset()"
+    >
+      Reset
+    </button>
+    <button
+      (click)="decreaseBy()"
+      class="px-3 py-1 bg-blue-300 rounded border border-black hover:bg-sky-600"
+    >
+      Decrementar
+    </button>
+  </div>
+</div>

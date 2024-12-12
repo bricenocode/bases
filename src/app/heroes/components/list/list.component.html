@@ -1,0 +1,40 @@
+
+<div
+  *ngIf="heroNames.length; else allDeleted"
+  class=" flex flex-col gap-2"
+>
+  <section
+    class=" flex flex-col gap-2 bg-gray-300 p-2 rounded mt-5 text-gray-800 text-2xl"
+  >
+    <h3>Listado de heroes</h3>
+    <h3
+      *ngIf="lastHero; else nothingWasDeleted"
+    >Héroe borrado <small class=" text-indigo-900 font-bold "> {{lastHero}}</small></h3>
+
+    <ng-template #nothingWasDeleted>
+      No se ha borrado nada
+    </ng-template>
+
+    <button
+      (click)="eliminarHeroe()"
+        class="px-3 py-1 bg-white  border-red-500 rounded border text-sm  hover:bg-red-500 hover:text-white"
+    >
+      Borrar último héroe
+    </button>
+  </section>
+
+  <section>
+    <ul class="mt-5 bg-indigo-800 text-white w-[300px] rounded p-5 flex flex-col gap-2">
+      <li *ngFor="let name of heroNames" class="w-full bg-indigo-500 p-2 rounded">
+        {{name}}
+      </li>
+    </ul>
+  </section>
+</div>
+
+<ng-template #allDeleted
+  class=" flex flex-col justify-center items-center text-center"
+  >
+  <h3 class=" text-indigo-900 font-bold text-4xl ">Todos han sido eliminados!</h3>
+  <p class="text-red-900 font-mono">Recargue la página si quiere verlos de nuevo!</p>
+</ng-template>

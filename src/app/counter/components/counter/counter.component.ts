@@ -11,13 +11,13 @@ export class CounterComponent implements OnInit {
 
   ngOnInit() { }
   public title:string = 'First Angular App';
-  public counter: number = 20;
+  public counter: number = 0;
 
   increseBy():void{
     this.counter += 1;
   }
   reset():void{
-    this.counter = 20;
+    this.counter = 0;
   }
   decreaseBy():void{
     this.counter -= 1;
