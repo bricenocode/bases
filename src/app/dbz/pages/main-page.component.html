@@ -1,0 +1,27 @@
+
+
+<h1 class="text-3xl text-orange-600 font-semibold">Main DBZ</h1>
+
+<hr>
+
+<div class=" bg-indigo-600 mt-5 p-4 rounded w-[400px]">
+  <div class="flex flex-col gap-2 p-2">
+  <!--
+     Se utiliza entre [] el atributo que quieres enviar
+     y entre "" a donde lo quiere enviar, respetando siempre el tipado
+  -->
+    <dbz-list
+      [characterList]="characters"
+      (onDeleteId)="onDeleteCharacter($event)"
+    >
+    </dbz-list>
+  </div>
+
+  <div class="flex flex-col justify-center items-center gap-2 p-2">
+    <dbz-add-character
+      (onNewCharacter)="onNewCharacter($event)"
+    ></dbz-add-character>
+  </div>
+
+</div>
+

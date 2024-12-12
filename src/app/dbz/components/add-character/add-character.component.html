@@ -1,0 +1,27 @@
+<form
+      class="flex flex-col gap-3 bg-zinc-800 px-2 py-4 rounded w-full items-center m-auto"
+      (ngSubmit)="addCharacter()"
+>
+    <input
+      [(ngModel)]="character.name"
+      name="name"
+      class="border-black border-1 rounded w-72 p-2"
+      type="text"
+      placeholder="Character"
+    >
+    <input
+      [(ngModel)]="character.power"
+      name="power"
+      class="border-black border-1 rounded w-72 p-2"
+      type="number"
+      placeholder="Power"
+    >
+    <button
+      class="rounded px-2 w-32 bg-green-400  hover:bg-green-600 hover:border-black"
+      type="submit"
+    >
+      Agregar
+    </button>
+
+    <pre>{{character | json}}</pre>
+</form>

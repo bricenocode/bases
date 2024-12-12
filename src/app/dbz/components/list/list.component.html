@@ -1,0 +1,41 @@
+<h4 class="text-2xl font-mono text-zinc-100">
+  Listado
+</h4>
+<ul>
+  <li
+    class="border border-gray-800 m-0 p-2 bg-gray-50 flex justify-between"
+      *ngFor="let character of characterList;
+      let i = index
+      let isFirst = first
+      let isLast = last
+      let isEven = even
+      "
+    >
+    <div>
+      <span
+        class="text-indigo-800 font-extrabold"
+        [ngClass]="{
+          'text-blue-500':isLast,
+          'text-red-500':isFirst,
+         }"
+      > {{i+1}} </span>
+      -
+      {{character.name}}
+      /
+      <span
+        class="text-indigo-800 font-bold"
+        [ngClass]="{'text-green-700':isEven }"
+        >
+        Power:
+      </span>
+      {{character.power}}
+       Es par: {{isEven}}
+    </div>
+     <button
+      (click)="onDeleteCharacter(i)"
+      class="px-3 py-1 text-white bg-red-500 rounded-md"
+     >
+        X
+      </button>
+  </li>
+</ul>
