@@ -19,6 +19,7 @@ export class MainPageComponent{
     return [...this.DbzService.characters]
   }
 
+
   onNewCharacter( character: Character){
     return this.DbzService.onNewCharacter(character)
   }
