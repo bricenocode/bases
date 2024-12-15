@@ -2,6 +2,7 @@
 
 import { Component } from '@angular/core';
 import { Character } from '../interfaces/character.interfaces';
+import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-dbz-main-page',
@@ -11,30 +12,19 @@ import { Character } from '../interfaces/character.interfaces';
 
 export class MainPageComponent{
 
-  public characters : Character[] = [
-    {
-      name: 'Krillin',
-      power: 1000
-    },
-    {
-      name: 'Goku',
-      power: 9500
-    },
-    {
-      name: 'Vegetta',
-      power: 700
-    },
-    {
-      name: 'Miguel',
-      power: 95000
-    },
-];
+  //Debemos tener privado para que solo sea accesible mediante lo getters, setters y funciones de clase.
+  constructor(private DbzService: DbzService){}
 
-  onNewCharacter( character: Character):void{
-      this.characters.push(character)
+  get characters():Character[]{
+    return [...this.DbzService.characters]
   }
-  onDeleteCharacter( index: number):void{
-    this.characters.splice(index, 1)
+
+  onNewCharacter( character: Character){
+    return this.DbzService.onNewCharacter(character)
+  }
+
+  onDeleteCharacter( id:string ):void{
+    return this.DbzService.deleteCharacterById(id)
   }
 
 }

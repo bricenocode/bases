@@ -10,15 +10,16 @@ import { Character } from '../../interfaces/character.interfaces';
 export class ListComponent {
 
   @Output()
-  public onDeleteId : EventEmitter<number> = new EventEmitter();
+  public onDeleteId : EventEmitter<string> = new EventEmitter();
 
 
   @Input()
   public characterList: Character [] = []
 
 
-  onDeleteCharacter(index:number){
-    this.onDeleteId.emit(index)
+    onDeleteCharacter(id:string){
+      if(!id)return;
+    this.onDeleteId.emit(id)
   }
 
  }
